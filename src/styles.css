@@ -1,0 +1,142 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ROC NATION AFRICA design system.
+ * Cinematic near-black surfaces, crimson brand accent, wide-tracked display type.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-logo-surface: var(--logo-surface);
+  --font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: "Michroma", "Eurostile", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.35rem;
+
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.97 0 0);
+  --surface: oklch(0.185 0.004 20);
+  --surface-2: oklch(0.235 0.006 20);
+  --card: oklch(0.195 0.004 20);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.195 0.004 20);
+  --popover-foreground: oklch(0.97 0 0);
+
+  --brand: oklch(0.552 0.216 26.5);
+  --brand-deep: oklch(0.38 0.163 26.5);
+  --brand-foreground: oklch(0.985 0.01 20);
+  --logo-surface: oklch(0.97 0 0);
+
+  --primary: oklch(0.552 0.216 26.5);
+  --primary-foreground: oklch(0.985 0.01 20);
+  --secondary: oklch(0.26 0.006 20);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.24 0.005 20);
+  --muted-foreground: oklch(0.72 0.012 20);
+  --accent: oklch(0.28 0.02 25);
+  --accent-foreground: oklch(0.97 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.32 0.008 20);
+  --input: oklch(0.32 0.008 20);
+  --ring: oklch(0.552 0.216 26.5);
+
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--brand-deep),
+    var(--brand) 55%,
+    color-mix(in oklab, var(--brand) 70%, black)
+  );
+  --gradient-fade-right: linear-gradient(
+    90deg,
+    var(--background) 8%,
+    color-mix(in oklab, var(--background) 70%, transparent) 45%,
+    transparent 78%
+  );
+  --shadow-brand: 0 18px 50px -18px color-mix(in oklab, var(--brand) 55%, transparent);
+  --shadow-panel: 0 24px 60px -30px oklch(0 0 0 / 0.9);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+@utility rule-brand {
+  background: linear-gradient(90deg, var(--brand), transparent);
+  height: 2px;
+  width: 7rem;
+}
+
+@utility surface-panel {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-panel);
+}
